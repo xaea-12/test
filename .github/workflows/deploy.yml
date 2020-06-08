@@ -1,9 +1,13 @@
 name: DeployAction
 
 on: 
-  pull_request_review_comment:
-    types:
-      - create
+  # pull_request_review_comment:
+    # types:
+      # - create
+  pull_request:
+    branches:
+      - feature/**
+      - fix/**
 
 jobs:
   deploy:
