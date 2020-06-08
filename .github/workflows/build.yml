@@ -21,7 +21,7 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git checkout -b test
-        git commit -m "Add changes" -a
+        git push --set-upstream origin test
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
