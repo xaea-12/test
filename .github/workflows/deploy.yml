@@ -4,7 +4,7 @@ on:
   # pull_request_review_comment:
     # types:
       # - create
-  push-request:
+  pull_request:
     branches:
       - feature/**
       - fix/**
