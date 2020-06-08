@@ -24,19 +24,20 @@ on:
     types:
       - create
 
-deploy:
-  run-on: ubuntu-latest
-  if: github.event.comment.body == 'Test This.'
-  steps:
-    - name: delete branch
-      uses: dawidd6/action-delete-branch@v3
-      with:
-        github_token: ${{github.token}}
-        branches: test
+jobs:
+  deploy:
+    run-on: ubuntu-latest
+    if: github.event.comment.body == 'Test This.'
+    steps:
+      - name: delete branch
+        uses: dawidd6/action-delete-branch@v3
+        with:
+          github_token: ${{github.token}}
+          branches: test
 
-    - name: create branch
-      uses: peterjgrainger/action-create-branch@v1.0.0
-      with:
-        branch: 'test'
-      env: 
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: create branch
+        uses: peterjgrainger/action-create-branch@v1.0.0
+        with:
+          branch: 'test'
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
