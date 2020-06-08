@@ -18,18 +18,3 @@ jobs:
     - name: Run Test 
       run: |
         sh bash-sh.sh
-
-  deploy:
-    if: github.event.comment.body == 'Test This.'
-    - name: delete branch
-      uses: dawidd6/action-delete-branch@v3
-      with:
-        github_token: ${{github.token}}
-        branches: test
-
-    - name: create branch
-      uses: peterjgrainger/action-create-branch@v1.0.0
-      with:
-        branch: 'test'
-      env: 
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
