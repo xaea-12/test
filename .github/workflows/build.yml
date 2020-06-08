@@ -16,13 +16,9 @@ jobs:
     - name: multiline 
       run: |
         echo do something
-    - name: Commit files
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git checkout -b test
-        git push --set-upstream origin test
-    - name: Push changes
-      uses: ad-m/github-push-action@master
+    - name: create barnch
+      uses: peterjgrainger/action-create-branch@v1.0.0
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: 'release-notes'
