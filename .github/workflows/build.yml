@@ -26,3 +26,5 @@ jobs:
       uses: peterjgrainger/action-create-branch@v1.0.0
       with:
         branch: 'test'
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
